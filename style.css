@@ -249,7 +249,7 @@ header button:hover {
             grid-template-areas:
                 "options"
                 "social_links";
-            grid-template-rows: 80vh 10vh;
+            grid-template-rows: 60vh 10vh;
     
         }
     
