@@ -1,0 +1,337 @@
+:root{
+    --anime: 1.5s;
+    --burger_anime: .5s;
+    --show_anime: calc(var(--anime)*10);
+    --pink:  #ffade0de;
+    --pink_white: linear-gradient(to right, white 1%, #fc77c9b2)
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@keyframes fade{
+    0%{
+        transform: translateX(-4rem) ;
+    }
+    20% {
+        transform: translateX(-2rem);
+    }
+    40% {
+        transform: translateX(0rem);
+    }
+     60% {
+        transform: translateX(2rem);
+     }
+      80% {
+        transform: translateX(4rem);
+     }
+    90% {
+        transform: translateX(2rem);
+    }
+    100%{
+        transform: translateX(0rem);
+    }
+}
+@keyframes show {
+    0% {
+        opacity: 0;
+
+    }
+
+    100% {
+        opacity: 100;
+    }
+}
+@keyframes move_bottom{
+    0%{top: -.1rem;
+    background-color: rgb(0, 145, 255);}
+    25%{top: -.2rem;}
+    50%{
+        
+        top: -.3rem;
+        transform: rotate(-22.5deg);
+    }
+    100%{transform: rotate(-45deg);
+    top: -.4rem;}
+}
+@keyframes move_top {
+    0% {top: .1rem;background-color: rgb(0, 145, 255);}
+    25% {top: .2rem;}
+    
+    50% {
+        
+        top: .3rem;
+        transform: rotate(22.5deg);
+    }
+
+    100% {transform: rotate(45deg);
+    top: .4rem;}
+}
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "main main main";
+    grid-template-rows: 10% 90%;
+    
+}
+header{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "logo links button";
+    align-items: center;
+    background-image: var(--pink_white);
+    grid-area: header;
+   
+}
+
+.logo-container{
+    grid-area:  logo;
+    width: 4rem;
+}
+.logo{
+    width: 100%;
+}
+nav{
+    grid-area: links;
+}
+header button{
+    grid-area: button;
+}
+nav ul{
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+}
+nav a {
+    text-decoration: none;
+    /* margin: 1rem; */
+
+    padding: .5rem 1rem;
+    color: rgb(61, 46, 57);
+    font-family: Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+nav ul li{
+    list-style: none;
+
+}
+.nav a:hover {
+    color: rgb(255, 255, 255);
+    background-color: #fc77c971;
+    border: 1px;
+    border-radius: 1rem;
+    font-weight: 900;
+}
+header button {
+    background-color: #0f5bffb9;
+    color: whitesmoke;
+    border: 1px solid #0f5bffb9;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    place-self: end;
+    width: max-content;
+    font-weight: 900;
+}
+
+header button:hover {
+    padding: .7rem 1.4rem;
+    letter-spacing: .2rem;
+    font-size: 1rem;
+    font-family: Helvetica, sans-serif;
+    background-color: #fc77c9cb;
+    border: 1px solid #fc77c99c;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.main {
+    grid-area: main;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(./asset/images/foh-stage.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-areas: "left blank right";
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    align-items: center;
+}
+.left{
+    grid-area: left;
+    background-color: rgba(0, 0, 0, 0.102);
+    color: white;
+    padding: 0 5%;
+    display: grid;
+    grid-template-areas: "big play"
+    "small play";
+    grid-template-columns: 1fr 1fr;
+    height: 10rem;
+
+}
+.right{
+    grid-area: right;
+    color: white;
+    padding: 2rem;
+    margin: 0 2rem;
+    font-style: italic;
+    text-align: justify;
+}
+.left h1{
+    font-size: 4rem;
+    grid-area: big;
+    animation: fade var(--anime) ease-in;
+}
+.left h1 span{
+    grid-area: small;
+    font-size: 1.4rem;
+    display: block;
+    animation: show var(--show_anime) ease-in;
+}
+.left img{
+    width: 7rem;
+    grid-area: play;
+    animation: show var(--show_anime) ease-in;
+
+}
+.left img:hover,.left img:active,.left img:focus{
+    width: 8rem;
+    cursor: pointer;
+
+}
+.right .open{
+    display: block;
+    font-size: 3rem;
+    margin: -2rem;
+    font-weight: bolder;
+}
+.right .close{
+    margin:  0 0 0 90%;
+    font-size: 3rem;
+    display: block;
+    font-weight: bolder;
+}
+.burger{
+    display: none;
+}
+.socials{
+    display: none;
+}
+@media (max-width: 600px){
+    .container {
+            display: grid;
+            grid-template-areas: "header""main";
+            grid-template-rows: 10vh 90vh;
+    
+        }
+    
+        header {
+            /* grid-area: header; */
+            display: grid;
+            grid-template-areas: "logo socials burger";
+            grid-template-columns: 1fr 1fr 1fr;
+            position: relative;
+    
+        }
+    
+        .logo {
+            grid-area: logo;
+        }
+    
+        /* nav */
+        .open_menu {
+            position: fixed;
+            height: 90vh;
+            top: 10vh;
+            width: 100%;
+            background-image: var(--pink_white);
+            display: grid;
+            grid-template-areas:
+                "options"
+                "social_links";
+            grid-template-rows: 80vh 10vh;
+    
+        }
+    
+        /* nav ul */
+        .open_ul {
+            grid-area: options;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+    
+        /* socials */
+        .open_socials {
+            display: flex;
+            justify-content: center;
+            grid-area: social_links;
+            align-items: center;
+        }
+    
+        /* socials img*/
+        .open_socials_size {
+    
+            width: 2rem;
+    
+        }
+    
+        .left,
+        .right {
+            display: none;
+        }
+    
+        .book {
+            display: none;
+        }
+    
+        .main {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(./asset/images/mob-foh.jpg);
+    
+        }
+    
+        .burger {
+            grid-area: burger;
+            height: 50px;
+            width: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+    
+        }
+    
+        .top,
+        .middle,
+        .bottom {
+            background-color: rgba(0, 0, 0, 0.702);
+    
+            width: 100%;
+            height: 10%;
+            margin-bottom: 7.5px;
+            /* margin-left: 80vw; */
+        }
+    
+        .none {
+            display: none;
+        }
+    
+        .move_anime_top {
+            position: relative;
+            animation: move_bottom var(--burger_anime) ease-in;
+            top: -.45rem;
+    
+            transform: rotate(-45deg);
+    
+        }
+    
+        .move_anime_bottom {
+            position: relative;
+            top: .45rem;
+            animation: move_top var(--burger_anime) ease-in;
+    
+            transform: rotate(45deg);
+        }
+
+}
