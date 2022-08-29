@@ -26,12 +26,22 @@
             <li><a href="#beats">Beats</a></li>
             <li><a href="#video">Music Video</a></li>
           </ul>
+          <div class="socials">
+            <a href="#"><img src="./asset/images/facebook.png" alt="" /></a>
+            <a href="#"><img src="./asset/images/instagram.png" alt="" /></a>
+            <a href="#"><img src="./asset/images/youtube.png" alt="" /></a>
+          </div>
         </nav>
 
         <a
           href="https://api.whatsapp.com/send?phone=%2B27764398902&fbclid=IwAR2lCXm706C-H6dPrX9jszbFsNHpWEGWb0fLSMCdfk8m6F04wsVviTn0pLk"
           ><div class="book"><button>BOOK NOW!</button></div></a
         >
+        <div class="burger">
+          <div class="top"></div>
+          <div class="middle"></div>
+          <div class="bottom"></div>
+        </div>
       </header>
 
       <div class="main">
@@ -49,6 +59,8 @@
           we were so connected.<span class="close">"</span>
         </div>
       </div>
+      <div class="menu"></div>
     </div>
   </body>
+  <script src="./app.js"></script>
 </html>
